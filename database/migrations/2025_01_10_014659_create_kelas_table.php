@@ -11,15 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('soals', function (Blueprint $table) {
+        Schema::create('kelas', function (Blueprint $table) {
             $table->id();
-            $table->integer('bobot');
-            $table->text('soal');
-            $table->string('opsi_a');
-            $table->string('opsi_b');
-            $table->string('opsi_c');
-            $table->string('opsi_d');
-            $table->string('kunci');
+            $table->string('nama');
             $table->timestamps();
         });
     }
@@ -29,6 +23,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('soals');
+        Schema::dropIfExists('kelas');
+        Schema::dropIfExists('user');
     }
 };

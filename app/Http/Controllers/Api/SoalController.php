@@ -9,8 +9,8 @@ use App\Http\Resources\SoalResource;
 
 class SoalController extends Controller
 {
-    public function index(){
-        $soals = Soal::paginate(1);
+    public function index(Request $req){
+        $soals = Soal::whereUjianId($req->ujian_id)->paginate(1);
 
         return new SoalResource(true, "List soal", $soals);
     }

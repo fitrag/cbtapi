@@ -11,8 +11,10 @@ class AuthController extends Controller
 {
     public function register(Request $req){
         $user = User::create([
+            'nama'      => $req->nama,
             'username'  => $req->username,
             'password'  => $req->password,
+            'kelas_id'  => $req->kelas_id,
         ]);
 
         $token = $user->createToken($req->username);

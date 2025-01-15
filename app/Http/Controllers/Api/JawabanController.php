@@ -11,11 +11,14 @@ class JawabanController extends Controller
 {
     public function store(Request $req){
         $insert = Jawaban::updateOrCreate(
-            [ 'soal_id' => $req->soal_id],
             [
-            'jawaban'   => $req->jawaban,
-            'user_id'   => $req->user_id,
-        ]);
+                'soal_id' => $req->soal_id,
+                'user_id'   => $req->user_id,
+            ],
+            [
+                'jawaban'   => $req->jawaban,
+                'user_id'   => $req->user_id,]
+            );
         if($insert){
             return new JawabanResource(true, "Berhasil menjawab", [
                 'jawaban'   => $req->jawaban,
@@ -24,8 +27,8 @@ class JawabanController extends Controller
         }
     }
 
-    public function show($id){
-        $jawaban = Jawaban::whereSoalId($id)->first();
+    public function show($id, $user_id){
+        $jawaban = Jawaban::whereSoalId($id)->whereUserId($user_id)->first();
         return new JawabanResource(true, "jawaban soal ini", $jawaban);
     }
 }

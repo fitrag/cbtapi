@@ -13,7 +13,7 @@ Route::apiResource('/jawaban', JawabanController::class);
 
 Route::get("/ujian", [UjianController::class,'index']);
 Route::get("/ujian/{id}", [UjianController::class,'show']);
-Route::get("/ujian/{id}/token", [UjianController::class,'cekToken']);
+Route::get("/ujian/{id}/token/{token}/{user_id}", [UjianController::class,'cekToken']);
 
 
 Route::post("/register", [AuthController::class,'register']);

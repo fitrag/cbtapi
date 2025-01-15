@@ -14,6 +14,7 @@ class JawabanController extends Controller
             [ 'soal_id' => $req->soal_id],
             [
             'jawaban'   => $req->jawaban,
+            'user_id'   => $req->user_id,
         ]);
         if($insert){
             return new JawabanResource(true, "Berhasil menjawab", [

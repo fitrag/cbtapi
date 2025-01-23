@@ -27,7 +27,7 @@ class UjianController extends Controller
 
             $countJawaban = Jawaban::whereUjianId($id)->whereUserId($user_id)->count();
 
-            if($countJawaban > 1){
+            if($countJawaban > 0){
                 return [
                     'token'         => $ujian->token,
                     'ujian_id'      => $id,
